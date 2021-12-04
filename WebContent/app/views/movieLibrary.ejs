@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Movies</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="icon" href="/docs/4.1/assets/img/favicons/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/sticky-footer-navbar/">
+    <link rel="stylesheet" href="styles/custom-style.css">
+    <link rel="stylesheet" href="styles/sticky-footer-navbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comforter&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="scripts/movie.js"></script>
+
+</head>
+
+<body class="body-tag">
+    <div id="movie-header">
+        <%- include('common/aboutLoginRegister') %>
+    </div>
+    <div style="height: 0.2rem; background-color: #FF0012;">
+
+    </div>
+    <div id="movie-header-2">
+        <%- include('common/searchHeader.ejs') %>
+    </div>
+    
+    <!-- Button trigger modal -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header modal-movieLibrary-header">
+          <!-- <form method="get" action="/movieShow"> -->
+            <a data-toggle='tooltip' data-placement='top' title='' class="modal-title" id="movieLibrary-modal-movieTitle"></a>
+          <!-- </form> -->
+          
+          <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button> -->
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-4">
+              <img id="movieLibrary-modal-movieImage" src="" alt="" srcset="" style="width: 15rem;height: 25rem;">
+            </div>
+            <div class="col-sm-8 modal-plot" style="max-width: 60rem; max-height:25rem">
+              <p id="movieLibrary-modal-moviePlot" style="color:white;font-size: 1.5rem;">
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer movieLibrary-modal-footer">
+          <button type="button" class="btn btn-secondary modal-close-btn" data-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- <ul>
+        <% filterMoviedata.forEach(function( eachMovie){ %>
+            
+            <img src="<%= eachMovie.image %>" alt="<%= eachMovie.image %>" srcset="" style="margin-left: 6rem;margin-top: 1rem;width: 10rem;height: 10rem;">
+
+            "<div class='col-sm-4'><div class='card' id='card-"+data.results[i].id+"'><div class='card-body'><h5 data-toggle='tooltip' data-placement='top' title='"+movietitle+"' class='card-title'>"+data.results[i].title+"</h5><p class='card-text'>With supporting text below as a natural lead-in to additional content.</p><img style='width: 18rem;height:18rem'  src='"+data.results[i].image+"' class='card-img-top' alt='"+data.results[i].title+"'><button class='movie-click-link' data-id='"+data.results[i].id+"' class='btn btn-primary'>Go</button></div></div></div>"
+
+        <% }) %>
+     
+        </ul> -->
+
+    
+        <div class="container" id="movie-library-container">
+            <div class="row">
+
+              <% if(filterMoviedata.length==0){ %>
+                <h1>Enter movie name in search field for getting response...</h1>
+                <% } else { %>
+                <% filterMoviedata.forEach(function( eachMovie){ %>
+
+                  <div class="modal fade" id="modal-<%= eachMovie.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                      </div>
+                    </div>
+                  </div>
+
+
+                    <div class='col'>
+                        <a data-toggle="modal" data-target="#modal-<%= eachMovie.id %>" class="movie-library-link" data-id="<%= eachMovie.id %>" href="/popupMovie?id=<%= eachMovie.id %>"><img src="<%= eachMovie.image %>" class="largeImage" alt="<%= eachMovie.image %>" srcset="" style="width: 25rem;height: 35rem;margin-bottom:1rem;margin-right:2rem;"></a>
+                    </div>
+                <% }) %>
+                <% } %>
+              </div>
+        </div>
+        
+    
+
+    <div id="movie-footer">
+        <%- include('common/footer') %>
+    </div>
+
+</body>
+
+</html>

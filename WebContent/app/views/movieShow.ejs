@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Movies</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="icon" href="/docs/4.1/assets/img/favicons/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/sticky-footer-navbar/">
+    <link rel="stylesheet" href="styles/custom-style.css">
+    <link rel="stylesheet" href="styles/sticky-footer-navbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comforter&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="scripts/movie.js"></script>
+
+</head>
+
+<body class="body-tag">
+    <div id="movie-header">
+        <%- include('common/aboutLoginRegister') %>
+    </div>
+    <div style="height: 0.2rem; background-color: #FF0012;">
+
+    </div>
+    <div id="movie-header-2">
+        <%- include('common/searchHeader.ejs') %>
+    </div>
+    <div class="row m-0">
+        <div class="col-sm-12">
+            <div id="movie-title-div">
+                <h3 style="margin-left: 6rem;color: #FF0012;"><strong><%=showMoviedata.fullTitle%></strong></h1>
+            </div>
+            <div id="movie-info-div">
+                <div class="parent-table-div" style="overflow: auto;">
+                    
+               
+                <div id="movie-info-table">
+                    <div class="row">
+                        <div class="col-sm-6" style="text-align: center;">
+                            <div
+                                style="margin-left:14rem;margin-top: 1rem;padding-bottom: 1rem; border-bottom: 1px solid grey;">
+                                <strong>Type</strong></div>
+                            <div
+                                style="margin-left:14rem;margin-top: 1rem;padding-bottom: 1rem; border-bottom: 1px solid grey;">
+                                <strong>ImDb</strong></div>
+                            <div
+                                style="margin-left:14rem;margin-top: 1rem;padding-bottom: 1rem; border-bottom: 1px solid grey;">
+                                <strong>Running Time</strong></div>
+                            <div
+                                style="margin-left:14rem;margin-top: 1rem;padding-bottom: 1rem; border-bottom: 1px solid grey;">
+                                <strong>Release Date</strong></div>
+                            <div
+                                style="margin-left:14rem;margin-top: 1rem;padding-bottom: 1rem; border-bottom: 1px solid grey;">
+                                <strong>Year</strong></div>
+                        </div>
+                        <div class="col-sm-6" style="text-align: left;">
+                            <div
+                                style="margin-right:14rem;margin-top: 1rem;padding-bottom: 1rem; border-bottom: 1px solid grey;">
+                                <%=showMoviedata.type%></div>
+                            <div
+                                style="margin-right:14rem;margin-top: 1rem;padding-bottom: 1rem; border-bottom: 1px solid grey;">
+                                <%=showMoviedata.imDbRating%></div>
+                            <div
+                                style="margin-right:14rem;margin-top: 1rem;padding-bottom: 1rem; border-bottom: 1px solid grey;">
+                                <%=showMoviedata.runtimeStr%></div>
+                            <div
+                                style="margin-right:14rem;margin-top: 1rem;padding-bottom: 1rem; border-bottom: 1px solid grey;">
+                                <%=showMoviedata.releaseDate%></div>
+                            <div
+                                style="margin-right:14rem;margin-top: 1rem;padding-bottom: 1rem; border-bottom: 1px solid grey;">
+                                <%=showMoviedata.year%></div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                <div id="movie-info-imagePlot" >
+                    <div class="row">
+                        <div class="col-sm-6" style="text-align: center;">
+                          <img id="" src="<%=showMoviedata.image%>" alt="" srcset="" style="margin-bottom: 1rem;margin-left:14rem;width: 15rem;height: 25rem;">
+                        </div>
+                        <div class="col-sm-6 " style="text-align: left;">
+                            <h3 style="
+                            margin-top: 0px;
+                        "> <%=showMoviedata.genres%>
+                            </h3>
+                          <p id="" style="color:white;font-size: 1.5rem;">
+                            <%=showMoviedata.plot%>
+                            
+                          </p>
+                        </div>
+                      </div>
+                </div>
+            </div>
+
+
+        
+
+
+
+                <div class="tabs movie-show-tabs">
+
+                    <ul class="nav nav-tabs" role="tablist" id="movie-show-tab">
+                        <li role="presentation" class="active"><a href="#actor-library-container" aria-controls="actor-library-container" role="tab"
+                                data-toggle="tab">LEAD ACTORS</a></li>
+                        <li role="presentation" class=""><a href="#director-library-container" aria-controls="director-library-container" role="tab"
+                                    data-toggle="tab">DIRECTORS-WRITERS</a></li>
+                        <li role="presentation" class=""><a href="#house-library-container" aria-controls="house-library-container" role="tab"
+                                        data-toggle="tab">PRODUCTION HOUSES</a></li>            
+                        <li role="presentation"><a href="#boxOffice-library-container" aria-controls="boxOffice-library-container" role="tab"
+                                data-toggle="tab">BOX OFFICE</a></li>
+                        <li role="presentation"><a href="#kind-library-container" aria-controls="kind-library-container" role="tab"
+                                data-toggle="tab">SIMILAR KIND</a></li>
+                    </ul>
+
+                    <div class="tab-content movie-show-tabs-content">
+                        <div role="tabpanel" class="tab-pane active container" id="actor-library-container">
+                            <div class="row">
+                                <% showMoviedata.actorList.forEach(function( eachActor){ %>
+                                    <div class='col'>
+                                        <a data-toggle="" data-target="" class="movie-library-link" data-id="<%= eachActor.id %>" href="<%= eachActor.id %>"><img src="<%= eachActor.image %>" alt="<%= eachActor.image %>" srcset="" style="width: 15rem;height: 25rem;margin-bottom:1rem;margin-right:2rem;"></a>
+                                        <h5><%=eachActor.name%> as </h5>
+                                        <h5><%=eachActor.asCharacter%></h5>
+                                    </div>
+                                <% }) %>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane container" id="director-library-container">
+                            <div class="row">
+                                <h1>Writers</h1>
+                                <% showMoviedata.writerList.forEach(function( eachWriter){ %>
+                                    <div class='col'>
+                                        <h5><%=eachWriter.name%></h5>
+                                    </div>
+                                <% }) %>
+                            </div>
+                            <div class="row">
+                                <h1>Directors</h1>
+                                <% showMoviedata.directorList.forEach(function( eachDirector){ %>
+                                    <div class='col'>
+                                        <h5><%=eachDirector.name%></h5>
+                                    </div>
+                                <% }) %>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane container" id="house-library-container">
+                            <div class="row">
+                                <% showMoviedata.companyList.forEach(function( eachCompany){ %>
+                                    <div class='col'>
+                                        <h5><%=eachCompany.name%></h5>
+                                    </div>
+                                <% }) %>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane container" id="boxOffice-library-container">
+                            <div class="row">
+                                    <div class='col'>
+                                        <h3>BUDGET</h3>
+                                        <h5><%=showMoviedata.boxOffice.budget%></h5>
+                                    </div>
+                                    <div class='col'>
+                                        <h3>OPENING WEEKEND USA</h3>
+                                        <h5><%=showMoviedata.boxOffice.openingWeekendUSA%></h5>
+                                    </div>
+                                    <div class='col'>
+                                        <h3>GROSS USA</h3>
+                                        <h5><%=showMoviedata.boxOffice.grossUSA%></h5>
+                                    </div>
+                                    <div class='col'>
+                                        <h3>CUMULATIVE WORLDWIDE GROSS</h3>
+                                        <h5><%=showMoviedata.boxOffice.cumulativeWorldwideGross%></h5>
+                                    </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane container" id="kind-library-container">
+                            <div class="row">
+                                <% showMoviedata.similars.forEach(function( similarMovie){ %>
+                                    <div class="modal fade" id="modal-<%= similarMovie.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                          <div class="modal-content">
+                                          </div>
+                                        </div>
+                                      </div>
+                                    <div class='col'>
+                                        <a data-toggle="modal" data-target="#modal-<%= similarMovie.id %>" class="movie-library-link" data-id="<%= similarMovie.id %>" href="/popupMovie?id=<%= similarMovie.id %>"><img src="<%= similarMovie.image %>" class="largeImage" alt="<%= similarMovie.image %>" srcset="" style="width: 15rem;height: 25rem;margin-bottom:1rem;margin-right:2rem;"></a>
+                                        <h5><%=similarMovie.title%></h5>
+                                    </div>
+                                <% }) %>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div id="movie-footer">
+        <%- include('common/footer') %>
+    </div>
+
+</body>
+
+</html>

@@ -84,5 +84,5 @@ app.get('/movieShow', (req, res) => {
 
 const PORTCheck = process.env.PORT || 3000;
 app.listen(PORTCheck, () => {
-    console.log(__dirname)
+    console.log(__dirname+" Your app is running")
 })

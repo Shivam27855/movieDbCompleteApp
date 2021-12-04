@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const axios = require('axios');
-const PORT = process.env.PORT || 3000;
+
 //const API_KEY ="k_mx0sw95w";
 const API_KEY = "k_gz5j5ynf";
 app.set('views', path.join(__dirname, 'WebContent/app/views'));
@@ -82,7 +82,7 @@ app.get('/movieShow', (req, res) => {
 //     res.render('moviePage');
 // })
 
-
-app.listen(PORT, () => {
+const PORTCheck = process.env.PORT || 3000;
+app.listen(PORTCheck, () => {
     console.log(__dirname)
 })
